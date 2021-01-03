@@ -1,20 +1,8 @@
-<div *ngFor="let org of getOrg()">
-  <div class="org-container">
-    <div class="org-wrapper">
-      <input type="checkbox"/>
-      <span>{{org.name}} ({{org.count.val}}) </span>
-    </div>
-    <div class="children-container" >
-      <div class="sites-container">
-        <div *ngFor="let site of org.children.site">
-          <input type="checkbox"/>
-          <span>{{site.name}}</span>
-        </div>
-      </div>
-      <div *ngIf="org.children && org.children.organisation">
-        <app-tree [data]="org.children.organisation"></app-tree>
-      </div>
-    </div>
+<div class="tree-container">
+  <div>
+    <input type="checkbox" [checked]="isSelectAll" (click)="onCheckAll()"/>
+    <span>{{allselection}}</span>
   </div>
+  <app-organisation [data]="data.children.organisation"></app-organisation>
 </div>
 

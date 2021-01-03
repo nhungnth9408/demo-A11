@@ -1,0 +1,20 @@
+<div *ngFor="let org of getOrg()">
+  <div class="org-container">
+    <div class="org-wrapper" (click)="org.isExpanded.val = !org.isExpanded.val">
+      <input type="checkbox" [checked]="org.checked || isSelectAll" (click)="onOrgChecked($event, org)"/>
+      <span>{{org.name}} ({{org.count.val}}) </span>
+    </div>
+    <div class="children-container" *ngIf="org.isExpanded && org.isExpanded.val">
+      <div class="sites-container">
+        <div *ngFor="let site of org.children.site">
+          <input type="checkbox" [checked]="site.checked || org.checked"/>
+          <span>{{site.name}}</span>
+        </div>
+      </div>
+      <div *ngIf="org.children && org.children.organisation">
+        <app-organisation [data]="org.children.organisation"></app-organisation>
+      </div>
+    </div>
+  </div>
+</div>
+

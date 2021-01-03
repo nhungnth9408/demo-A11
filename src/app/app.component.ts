@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TreeService } from '../app/tree.service';
+// import { TreeService } from '../app/tree.service';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +9,7 @@ import { TreeService } from '../app/tree.service';
 export class AppComponent {
   title = 'demo-A9';
   data: any;
-  constructor(private treeService: TreeService) {
-    this.getOrgs();
-  }
-  getOrgs(): void {
-    this.treeService.getOrgs().subscribe(organizations => this.data = organizations);
+  constructor() {
+    // this.getOrgs();
   }
 }
